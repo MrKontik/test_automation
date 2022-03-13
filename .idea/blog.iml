@@ -40,23 +40,43 @@
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.0.2.2, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.0.2.2, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.0, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v10.4.2.0, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="better_errors (v2.9.1, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="binding_of_caller (v1.0.0, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.10.3, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bootstrap-sass (v3.4.1, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.3.8, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v3.36.0, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="childprocess (v4.1.0, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.3, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.9, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug (v1.4.0, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="debug_inspector (v1.1.0, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="digest (v3.1.0, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.10.0, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="execjs (v2.8.1, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ffi (v1.15.5, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="font-awesome-rails (v4.7.0.8, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="font-awesome-sass (v6.0.0, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.0.0, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="haml (v5.2.2, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="haml-rails (v2.0.1, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="html2haml (v2.2.0, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.10.0, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="importmap-rails (v1.0.3, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.5.11, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.4.1, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.11.5, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v4.4.0, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jquery-ui-rails (v6.0.1, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari (v1.2.2, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari-actionview (v1.2.2, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari-activerecord (v1.2.2, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari-core (v1.2.2, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.14.0, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.7.1, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.2, ruby-3.1.1-p18) [gem]" level="application" />
@@ -76,19 +96,27 @@
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.3, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v1.1.0, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails (v7.0.2.2, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails-asset-jqueryui (v0.0.3, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.0.3, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.4.2, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="railties (v7.0.2.2, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.0.6, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.2.1, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rexml (v3.2.5, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby_parser (v3.18.1, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v2.3.2, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sass-rails (v6.0.0, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sassc (v2.4.0, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sassc-rails (v2.1.2, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v4.1.0, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sexp_processor (v4.16.0, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.0.2, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.4.2, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.4.2, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.0.4, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="temple (v0.8.2, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.2.1, ruby-3.1.1-p18) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v2.0.10, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turbo-rails (v1.0.1, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.4, ruby-3.1.1-p18) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo-data (v1.2021.5, ruby-3.1.1-p18) [gem]" level="application" />
@@ -112,11 +140,17 @@
         <option value="benchmark" />
         <option value="channel" />
         <option value="controller" />
+        <option value="erb:controller" />
+        <option value="erb:mailer" />
+        <option value="erb:scaffold" />
         <option value="generator" />
+        <option value="haml:application_layout" />
         <option value="helper" />
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
+        <option value="kaminari:config" />
+        <option value="kaminari:views" />
         <option value="mailbox" />
         <option value="mailer" />
         <option value="migration" />
@@ -124,6 +158,8 @@
         <option value="resource" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
+        <option value="scss:assets" />
+        <option value="scss:scaffold" />
         <option value="stimulus" />
         <option value="system_test" />
         <option value="task" />
@@ -142,11 +178,17 @@
         <option value="benchmark" />
         <option value="channel" />
         <option value="controller" />
+        <option value="erb:controller" />
+        <option value="erb:mailer" />
+        <option value="erb:scaffold" />
         <option value="generator" />
+        <option value="haml:application_layout" />
         <option value="helper" />
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
+        <option value="kaminari:config" />
+        <option value="kaminari:views" />
         <option value="mailbox" />
         <option value="mailer" />
         <option value="migration" />
@@ -154,6 +196,8 @@
         <option value="resource" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
+        <option value="scss:assets" />
+        <option value="scss:scaffold" />
         <option value="stimulus" />
         <option value="system_test" />
         <option value="task" />
@@ -340,6 +384,11 @@
                 </subtasks>
               </RakeTaskImpl>
               <RakeTaskImpl description="" fullCommand="db:truncate_all" id="truncate_all" />
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl id="haml">
+            <subtasks>
+              <RakeTaskImpl description="Convert html.erb to html.haml each file in app/views" fullCommand="haml:erb2haml" id="erb2haml" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl id="importmap">

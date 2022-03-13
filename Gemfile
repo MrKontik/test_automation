@@ -72,3 +72,32 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
+gem "haml-rails"
+
+# Use jquery as the JavaScript library
+gem 'jquery-ui-rails'
+gem 'rails-asset-jqueryui'
+# Use SАSS for stylesheets
+gem 'sass-rails'
+
+gem 'bootstrap-sass'
+
+# Pagination
+# gem 'will_paginate'
+gem 'kaminari'
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platform: :mri
+
+  # Лучше отображает ошибки
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+# Icons fonts
+gem 'font-awesome-sass' #, '~> 4.6.2'
+gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
+gem 'jquery-rails'
+gem 'turbolinks'
