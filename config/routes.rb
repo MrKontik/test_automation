@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :images
   resources :values
   resources :users
-  root 'main#index'
+  #root 'main#index'
+  root 'work#index'
   get 'main/index'
   get 'main/help'
   get 'main/contacts'
@@ -13,4 +14,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  # work
+
+  match 'work',             to: 'work#index',                  via: 'get'
+  match 'choose_theme',     to: 'work#choose_theme',       via: 'get'
+  match 'display_theme',    to: 'work#display_theme',      via: 'post'
+
 end
