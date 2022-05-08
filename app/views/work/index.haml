@@ -4,6 +4,7 @@
       .left_controls
         .select_theme
           = render 'work/button_theme_select', locale: @current_locale
+        %script{:type => "text/javascript", :src => "https://code.jquery.com/jquery-3.5.1.js"}
         %script{:type => "text/javascript", :src => "/assets/jquery_my.js"}
         %script{:type => "text/javascript", :src => "/assets/jquery_ujs_my.js"}
         %script{:type => "text/javascript", :src => "/assets/application.js"}
