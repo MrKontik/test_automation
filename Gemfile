@@ -75,6 +75,10 @@ group :test do
   gem "webdrivers"
 end
 
+group :production do
+  # For Heroku deployment
+  gem 'rails_12factor'
+end
 
 gem "haml-rails"
 
@@ -85,6 +89,7 @@ gem 'rails-asset-jqueryui'
 gem 'sass-rails'
 
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 # Pagination
 # gem 'will_paginate'

@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: %i[ show edit update destroy ]
-  belongs_to :theme
+  #belongs_to :theme
 
   # GET /images or /images.json
   def index
@@ -66,12 +66,12 @@ class ImagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def image_params
-      params.require(:image).permit(:name, :file, :ave_valueva, :theme_id)
+      params.require(:image).permit(:name, :file, :ave_value, :theme_id)
     end
   # get images array of arrays by given theme_id
-  scope :theme_images, -> (theme_id) {
-    select('id','name','file','ave_value').where(theme_id: theme_id)
-  }
+  #scope :theme_images, -> (theme_id) {
+  #  select('id','name','file','ave_value').where(theme_id: theme_id)
+  #}
 
 
 

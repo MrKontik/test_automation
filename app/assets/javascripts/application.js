@@ -24,5 +24,9 @@
 
 //= require bootstrap
 //= require_tree ./channels
-
+//= require bootstrap
 //= require_tree .
+
+
+import * as jQuery from 'jquery';
+window.$ = jQuery

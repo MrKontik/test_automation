@@ -1,0 +1,13 @@
+%nav
+  %ul.nav.navbar-nav.pull-right
+    %li= link_to t('.home'), root_path
+    %li= link_to t('.help'), main_help_path
+    - if signed_in?
+      %li.logged
+        = gravatar_for current_user
+      %li.navItem1
+        = link_to t('.profile'), current_user
+        = link_to t('.sign_out'), signout_path, method: "delete"
+
+    - else
+      %li.navItem= link_to t('.sign_in'), signing_path

@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_30_193444) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_08_142808) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
   enable_extension "pgagent"
   enable_extension "plpgsql"
 
-  create_table "images", force: :cascade do |t|
-    t.string "name"
-    t.string "file"
-    t.float "ave_valueva"
+  create_table "images", id: :serial, force: :cascade do |t|
+    t.string "name", limit: 40
+    t.string "file", limit: 40
+    t.float "ave_value"
     t.integer "theme_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "themes", force: :cascade do |t|
@@ -37,6 +37,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_193444) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.string "remember_token"
+    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
   create_table "values", force: :cascade do |t|

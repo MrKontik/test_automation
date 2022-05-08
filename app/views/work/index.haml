@@ -1,39 +1,122 @@
 .image
   .row
     .col-md-3
+      .left_controls
+        .select_theme
+          = render 'work/button_theme_select', locale: @current_locale
+        %script{:type => "text/javascript", :src => "/assets/jquery.js"}
+        %script{:type => "text/javascript", :src => "/assets/jquery_ujs.js"}
+        %script{:type => "text/javascript", :src => "/assets/bootstrap.js"}
+        %link{ :rel => "stylesheet", :href => "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css", :integrity => "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC", :crossorigin => "anonymous" }
+        %link{ :rel => "stylesheet", :href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"}
+        %script{ :src=> "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", :integrity=> "sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM", :crossorigin=>"anonymous"}
+        %script{:type => "text/javascript"}
 
 
-.left_controls
-  .select_theme
-  = render 'work/button_theme_select', locale: @current_locale
-%br
+        %span.total_values
+          = t('.total_values')
+          %h2.total{:title => "Total values"} #{@values_qty.round}
+        %span.common_value
+          = t('.common_value')
+          %h2.common{:title => "Common value"}
+    .col-md-9
+      .image_display
+        .row.image
+          .col-md-12
+            %h2.up-theme{:title => "theme_name", :style => "text-align: center;"}
+              #{@selected_theme}
+          .col-md-12
+            %h2.up{:title => "Image file name", :style => "text-align: center;"}
+              #{@selected_image_name}
+          .col-md-1
+            .img-left-side
+              %h3{:title => "list to previous image"}
+                %i.fa.fa-chevron-circle-left.strong
+          .col-md-10
+            .img-center{:title => "Default image"}
+              %img{:alt => "Default Image",
+                   :src => 'assets/pictures/raduga.png',
+                 :title => "Default image",
+                :style => "width:100%; height:100%;"
+                }
+            .image_user_value{:title => "Expert value"}
+          .col-md-1
+            .img-right-side
+              %h3{:title => "list to next image"}
+                %i.fa.fa-chevron-circle-right
+        .row.diag
+          .col-md-12
+            .image_diag
 
-.col-md-9
-  .image_display
-    .row.image
-      .col-md-12
-        %h2.up-theme{:title => "theme_name"}
-          #{@selected_theme}
 
-      .col-md-12
-        %h2.up{:title => "Image file name"}
-          #{@selected_image_name}
-
-
-      .col-md-1
-        .img-left-side
-          %h3{:title => "list to previous image"}
-            %i.fa.fa-chevron-circle-left.strong
-      .col-md-10
-        .img-center{:title => "Default image"}
-    %img{:alt => "Default Image", :src =>
-'assets/images/raduga.png',
- :title => "Default image",
-:style => "width:100%; height:100%;" }
-      .image_user_value{:title => "Expert value"}
+              %h2.down{:title => "Value scale"}
+                = t(".make_decision")
+              %button.button__results.save{:title => "Save image diag results"}
+                %a{"data-remote" => "true", :format => "js", :href => "#", :title => "Save image diag results"}
+                  = t(".save_decision")
+              #chosen_value 0
+              .row
+                .col-md-1
+                  %p.left -10
+                .col-md-3
+                  #slider
+                  %input#slide{:max => "10", :min => "-10", :value => "0",
+                             :step => "1", :type => "range"}
+                .col-md-1
+                  %p.right 10
+                .col-md-7
+              %br
 
 
-      .col-md-1
-        .img-right-side
-          %h3{:title => "list to next image"}
-            %i.fa.fa-chevron-circle-right
+                :javascript
+                  $('.img-right-side').click(function (event) {
+                    event.stopImmediatePropagation();
+                    $.ajax({
+                      type: "get",
+                      url: "api/next_image",
+                        data: { index: imageCurrentIndex,
+                          theme_id: selectedThemeId,
+                          length: themeImagesSize },
+                        dataType: 'json'
+                    }).done(function (data_return) {
+                      console.log("success:  " + data_return.notice );
+                      imageCurrentIndex = data_return.new_image_index;
+                      oneImageName = data_return.name;
+                      oneImageFile = data_return.file;
+                      oneImageId = data_return.image_id;
+                      $('.image_display h2.up').append().html(oneImageName);
+                      var pathImage = "assets/pictures/" + oneImageFile;
+                      $(".img-center").attr({title: "Selected image" });
+                      $(".img-center img").attr({alt: "Selected Image", src:
+                      pathImage, title: "Selected image" });
+                        })
+                        .fail(function (data_return) {
+                          console.log("error: data_return = " + data_return);
+                        });
+                    });
+
+                    $('.img-left-side').click(function (event) {
+                    event.stopImmediatePropagation();
+                    $.ajax({
+                      type: "get",
+                      url: "api/prev_image",
+                        data: { index: imageCurrentIndex,
+                          theme_id: selectedThemeId,
+                          length: themeImagesSize },
+                        dataType: 'json'
+                    }).done(function (data_return) {
+                      console.log("success:  " + data_return.notice );
+                      imageCurrentIndex = data_return.new_image_index;
+                      oneImageName = data_return.name;
+                      oneImageFile = data_return.file;
+                      oneImageId = data_return.image_id;
+                      $('.image_display h2.up').append().html(oneImageName);
+                      var pathImage = "assets/pictures/" + oneImageFile;
+                      $(".img-center").attr({title: "Selected image" });
+                      $(".img-center img").attr({alt: "Selected Image", src:
+                      pathImage, title: "Selected image" });
+                        })
+                        .fail(function (data_return) {
+                          console.log("error: data_return = " + data_return);
+                        });
+                    });

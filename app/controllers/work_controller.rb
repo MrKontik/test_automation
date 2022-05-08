@@ -2,7 +2,7 @@ class WorkController < ApplicationController
   #protect_from_forgery except: :choose_theme
   skip_before_action :verify_authenticity_token
   #respond_to :js
-  require 'json'
+  #require 'js'
   include WorkImage
   include WorkHelper
 
@@ -20,7 +20,8 @@ class WorkController < ApplicationController
 
     @themes = Theme.all.pluck(:name)
     logger.info "In WorkController#choose_theme @themes = #{@themes}"
-    respond_to :js
+
+    #respond_to :js
     #respond_to do |format|
       #format.json { render json: @themes}
       #end
@@ -35,13 +36,14 @@ class WorkController < ApplicationController
     @image_data = {}
     I18n.locale = session[:current_locale]
 
-    current_user_id = current_user.id
+    #current_user_id = current_user.id
+    current_user_id = 1
     if params[:theme] == "-----" #.blank?
       theme = "Select theme to leave your answer"
       theme_id = 1
       values_qty = Value.all.count.round
       data = { index: 0, name: 'радуга', values_qty: values_qty,
-               file: 'raduga5обрез.jpg', image_id: 4,
+               file: 'raduga.png', image_id: 4,
                current_user_id: current_user_id, user_valued: false,
                common_ave_value: 0, value: 0 }
     else

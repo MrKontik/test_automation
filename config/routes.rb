@@ -3,12 +3,21 @@ Rails.application.routes.draw do
   resources :images
   resources :values
   resources :users
+  resources :sessions
   #root 'main#index'
-  root 'work#index'
+  root 'main#index'
   get 'main/index'
   get 'main/help'
   get 'main/contacts'
   get 'main/about'
+  namespace :api, defaults: { format: :json } do
+    match 'next_image', to: 'api#next_image', via: :get
+    match 'prev_image', to: 'api#prev_image', via: :get
+  end
+
+  match 'signup',   to: 'users#new',            via: 'get'
+  match 'signing',   to: 'sessions#new',         via: 'get'
+  match 'signout',  to: 'sessions#destroy',     via: 'delete'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
