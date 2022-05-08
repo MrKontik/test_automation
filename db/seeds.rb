@@ -7,21 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-Image.delete_all
-Image.reset_pk_sequence
-Image.create([
 
-               {name: 'Mem c котиком', file: 'k1.jpg', ave_value:1, theme_id: 2},
-               {name: 'Небеса под землей', file: '1.jpg', ave_value:2, theme_id: 3},
-               {name: 'Летающий котик', file: 'k2.jpg', ave_value:6, theme_id: 2},
-               {name: 'Кот в балете', file: 'k3.jpg', ave_value:3, theme_id: 2},
-               {name: 'Небо фиолетовое', file: '2.jpg', ave_value:4, theme_id: 3},
-               {name: 'Дача в Селене', file: 'h1.jpg', ave_value:5, theme_id: 4},
-               {name: 'Квартира в Москве', file: 'h2.jpg', ave_value:7, theme_id: 4},
-               {name: 'Небеса в каждом из нас', file: 'heavenInside.jpg', ave_value:8, theme_id: 3},
-               {name: 'Кот с котятами', file: 'CatWithCats.jpg', ave_value:9, theme_id: 2},
-               {name: 'Кот в сапогах', file: 'CatBoots.jpg', ave_value:11, theme_id: 2},
-             ])
 
 Theme.delete_all
 Theme.reset_pk_sequence
@@ -44,7 +30,21 @@ User.create([
               {name: "Wromon", email: "Wromon@railstutorial.org"},
             ])
 
+Image.delete_all
+Image.reset_pk_sequence
+Image.create([
 
+               {name: 'Mem c котиком', file: 'k1.jpg', ave_value:1, theme_id: 2},
+               {name: 'Небеса под землей', file: '1.jpg', ave_value:2, theme_id: 3},
+               {name: 'Летающий котик', file: 'k2.jpg', ave_value:6, theme_id: 2},
+               {name: 'Кот в балете', file: 'k3.jpg', ave_value:3, theme_id: 2},
+               {name: 'Небо фиолетовое', file: '2.jpg', ave_value:4, theme_id: 3},
+               {name: 'Дача в Селене', file: 'h1.jpg', ave_value:5, theme_id: 4},
+               {name: 'Квартира в Москве', file: 'h2.jpg', ave_value:7, theme_id: 4},
+               {name: 'Небеса в каждом из нас', file: 'heavenInside.jpg', ave_value:8, theme_id: 3},
+               {name: 'Кот с котятами', file: 'CatWithCats.jpg', ave_value:9, theme_id: 2},
+               {name: 'Кот в сапогах', file: 'CatBoots.jpg', ave_value:11, theme_id: 2},
+             ])
 Value.delete_all
 Value.reset_pk_sequence
 Value.create([
