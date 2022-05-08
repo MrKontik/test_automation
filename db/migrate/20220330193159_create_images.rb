@@ -4,7 +4,7 @@ class CreateImages < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :file
       t.float :ave_value
-      t.belongs_to :theme_id , index: true, foreign_key: true
+      t.belongs_to :theme , index: true, foreign_key: true
 
       t.timestamps
     end
