@@ -15,6 +15,7 @@ module Blog
     config.i18n.fallbacks = true
     config.i18n.fallbacks = [:en]
     config.i18n.enforce_available_locales = true
+    config.assets.compile = true
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
