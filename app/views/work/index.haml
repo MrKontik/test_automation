@@ -4,6 +4,10 @@
       .left_controls
         .select_theme
           = render 'work/button_theme_select', locale: @current_locale
+        .modal_list_results
+          = render 'work/button_list_results'
+          %br
+
         %script{:type => "text/javascript", :src => "https://code.jquery.com/jquery-3.5.1.js"}
         %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"}
         :javascript
@@ -562,10 +566,13 @@
             }
 
           })( jQuery );
-        %link{ :rel => "stylesheet", :href => "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css", :integrity => "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC", :crossorigin => "anonymous" }
-        %link{ :rel => "stylesheet", :href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"}
+
+          function updateSlider(t){var e=document.getElementById("chosen_value");console.log("IN updateSlider:  - slideAmount = "+t),e.innerHTML=t;document.getElementById("pic")}
+
+
         %script{ :src=> "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", :integrity=> "sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM", :crossorigin=>"anonymous"}
         %script{:type => "text/javascript"}
+
 
 
         %span.total_values
@@ -589,7 +596,7 @@
                 %i.fa.fa-chevron-circle-left.strong
           .col-md-10
             .img-center{:title => "Default image"}
-              = link_to image_tag("raduga.png", alt: "",  style: "width: 100%; height: 100%", title: "Default image" )
+              = link_to image_tag("raduga.png", alt: "",  style: "width: 50%; height: 50%", title: "Default image" )
             .image_user_value{:title => "Expert value"}
           .col-md-1
             .img-right-side
@@ -602,8 +609,8 @@
 
               %h2.down{:title => "Value scale"}
                 = t(".make_decision")
-              %button.button__results.save{:title => "Save image diag results"}
-                %a{"data-remote" => "true", :format => "js", :href => "#", :title => "Save image diag results"}
+              %button.btn.btn-outline-success{:title => "Save image diag results" }
+                %a{"data-remote" => "true", :format => "js", :href => "#", :title => "Save image diag results" }
                   = t(".save_decision")
               #chosen_value 0
               .row
@@ -612,7 +619,7 @@
                 .col-md-3
                   #slider
                   %input#slide{:max => "10", :min => "-10", :value => "0",
-                             :step => "1", :type => "range"}
+                             :step => "1", :type => "range", :onchange => "updateSlider(this.value)"}
                 .col-md-1
                   %p.right 10
                 .col-md-7
@@ -671,3 +678,93 @@
                           console.log("error: data_return = " + data_return);
                         });
                     });
+                  function evaluation(value){
+                      var val=parseInt(value);
+
+                      return val
+                  }
+
+                  var imageCurrentIndex = '<%= @image_data[:index] %>';
+
+                  var oneImageName = '<%= @image_data[:name] %>';
+                  var oneImageFile = '<%= @image_data[:file] %>';
+                  console.log("3e IN display_theme: oneImageFile = " + oneImageFile);
+                  var oneImageId = '<%= @image_data[:image_id] %>';
+                  console.log("3f IN display_theme: oneImageId = " + oneImageId);
+                  var themeImagesSize = '<%= @image_data[:images_arr_size] %>';
+                  var selectedThemeId = '<%= @image_data[:theme_id] %>';
+
+                  var selectedTheme = '<%= @image_data[:theme] %>';
+
+                  if (selectedTheme == "Выберите тему для оценки" || selectedTheme == "Select theme to leave your answer" || selectedTheme == "Select theme" || selectedTheme == "") {
+                    $('.img-left-side').css({"display": "none"});
+                    $('.img-right-side').css({"display": "none"});
+                    $('.image .image_display .image_diag').css({"display": "none"});
+                  } else {
+                    $('.img-left-side').css({"display": "block"});
+                    $('.img-right-side').css({"display": "block"});
+                    $('.image .image_display .image_diag').css({"display": "block"});
+                  }
+
+                  var userValuedImage = '<%= @image_data[:user_valued] %>';
+
+                  if(userValuedImage === 1){
+                    console.log("3c1 IN IF: userValuedImage == true? == " + userValuedImage);
+                    $('.left_controls span.common_value').css({"display": "block"});
+                    $('.image .image_display .image_diag').css({"display": "none"});
+                    var imageCommonValue = '<%= @image_data[:common_ave_value] %>';
+                    var evaluated = evaluation(imageCommonValue);
+                    console.log("3c2 IN IF: imageCommonValue = " + evaluated);
+                    $('.left_controls span.common_value h2.common').append().html(evaluated);
+
+                    var imageValue = '<%= @image_data[:value] %>';
+                    evaluated = evaluation(imageValue);
+                    $('.image .image_display .image_user_value').append().html(evaluated).css({"display": "block"});
+                  }else{
+                    $('.left_controls span.common_value').css({"display": "none"});
+                    $('.image .image_display .image_user_value').css({"display": "none"});
+                  }
+                  var currentUserId = '<%= @image_data[:current_user_id] %>';
+                  console.log("3d IN display_theme: currentUserId = " + currentUserId);
+                  if(selectedTheme != '<%= @image_data[:theme] %>') {
+                    $('.image_display h2.up-theme').append().html(selectedTheme);
+                  }
+                  $('.btn.btn-outline-success').unbind( "click" ).click(function(event) {
+                  console.log("clicked: button__results.save: ");
+                  event.stopImmediatePropagation(); // would stop the event from bubbling to parent elements,
+                  var displayValue = document.getElementById('chosen_value');
+                  console.log("displayValue = " + displayValue.innerHTML);
+                  $.ajax({
+                    type: "get",
+                    url: "api/save_value",
+                    data: { image_id: oneImageId,
+                      theme_id: selectedThemeId,
+                      value: displayValue.innerHTML
+                    },
+                    dataType: 'json'
+                  }).done(function (data_return) {
+                    console.log("success:  " + data_return.notice );
+                    var userImageValue = data_return.user_value;
+                    var evaluated = evaluation(userImageValue);
+                    $('.image .image_display .image_user_value').append().html(evaluated);
+                    var userValuedFlag = data_return.user_valued;
+                    if(userValuedFlag === 1){
+                      console.log("5 IN IF: userValuedFlag == true? == " + userValuedFlag);
+                      $('.left_controls span.common_value').css({"display": "block"});
+                      $('.image .image_display .image_diag').css({"display": "none"});
+                      var valuesQty = data_return.values_qty;
+                      $('.left_controls span.total_values h2.total').append().html(valuesQty);
+                      var imageCommonValue = data_return.common_ave_value;
+                      evaluated = evaluation(imageCommonValue);
+                      console.log("6 IN save_value: imageCommonValue = " + evaluated);
+                      $('.left_controls span.common_value h2.common').append().html(evaluated);
+                      $('.image .image_display .image_user_value').css({"display": "block"});
+                    }else{
+                      $('.left_controls span.common_value').css({"display": "none"});
+                      console.log("7 IN ELSE: save_value userValuedImage == false? == " + userValuedFlag);
+                      $('.image .image_display .image_diag').css({"display": "block"});
+                    }
+                  })
+                    .fail(function (data_return) {
+                      console.log("error: data_return = " + data_return);
+                    }); });

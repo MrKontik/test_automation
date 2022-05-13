@@ -13,12 +13,14 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     match 'next_image', to: 'api#next_image', via: :get
     match 'prev_image', to: 'api#prev_image', via: :get
+    match 'save_value',       to: 'api#save_value',   via: :get
   end
 
   match 'signup',   to: 'users#new',            via: 'get'
   match 'signing',   to: 'sessions#new',         via: 'get'
   match 'signout',  to: 'sessions#destroy',     via: 'delete'
-
+  match 'signout',  to: 'sessions#destroy',     via: 'get'
+  match 'results_list',     to: 'work#results_list', via: :get
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
